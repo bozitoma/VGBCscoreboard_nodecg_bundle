@@ -1,0 +1,145 @@
+{
+  "name": "scoreboard",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "watch": "vite build --watch",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "nodecg": {
+    "compatibleRange": "2.1.11",
+    "dashboardPanels": [
+      {
+        "name": "Scoreboard",
+        "title": "1-1.Scoreboard",
+        "file": "scoreboard.html",
+        "fullbleed": true,
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "ScoreboardMelee",
+        "title": "1-2.Melee",
+        "file": "scoreboardMelee.html",
+        "fullbleed": true,
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "Commentator",
+        "title": "2.Commentator",
+        "file": "commentator.html",
+        "fullbleed": true,
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "Bracket",
+        "title": "3.Bracket",
+        "file": "bracket.html",
+        "fullbleed": true,
+        "headerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "commentator_NoTagVer.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "commentator.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "SSBU.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "SF6.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "doubleBacket.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "singleBracket.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "wait.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "meleeSingleCenter.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "meleeSingleRight.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "meleeDoubleRight.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "meleeSingleH2H.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "meleeDoubleH2H.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "dependencies": {
+    "@apollo/client": "^3.8.5",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/lab": "^5.0.0-alpha.161",
+    "@mui/material": "^5.15.5",
+    "@rive-app/react-canvas": "^4.7.1",
+    "graphql": "^16.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-select": "^5.8.0",
+    "recoil": "^0.7.7"
+  },
+  "devDependencies": {
+    "@nodecg/types": "^2.1.11",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "globby": "^13.1.4",
+    "prettier": "2.8.8",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-node-externals": "^5.1.2",
+    "ts-nodecg": "^0.3.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
