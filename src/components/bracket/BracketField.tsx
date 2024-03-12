@@ -23,8 +23,8 @@ export function BracketField({ roundName }: Props) {
         [roundName]: {
           name1p: repInformation.Player1.name,
           name2p: repInformation.Player2.name,
-          score1p: repInformation.Player1.score,
-          score2p: repInformation.Player2.score,
+          score1p: repInformation.Score.Player1,
+          score2p: repInformation.Score.Player2,
         },
       }));
     }

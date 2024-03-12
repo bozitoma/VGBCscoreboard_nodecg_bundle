@@ -2,6 +2,8 @@ import { Stack } from '@mui/material';
 import { BracketRoundFieldSolo } from './BracketRoundFieldSolo';
 import { useBracket } from '../../hooks/useBracket';
 import { TitleDivider } from '../general/TitleDivider';
+import { useRecoilValue } from 'recoil';
+import { bracketRoundAtom } from '../../store/atomBracket';
 
 type Props = {
   text: string;
@@ -13,7 +15,8 @@ type Props = {
 };
 
 export function BracketRoundFieldUnit({ text, Round1, Round2, Round3, Round4, Round5 }: Props) {
-  const { bracketRound, bracketRoundEdit } = useBracket();
+  const bracketRound = useRecoilValue(bracketRoundAtom);
+  const { bracketRoundEdit } = useBracket();
 
   return (
     <>

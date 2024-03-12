@@ -25,6 +25,8 @@ export function useGetMatch() {
         sets(perPage: 50, filters: {state: [1, 2], hideEmpty: true}) {
           nodes {
             id
+            wPlacement
+            lPlacement
             fullRoundText
             state
             stream {
@@ -63,38 +65,88 @@ export function useGetMatch() {
       const array: matchArray[] = [];
 
       nodes.map((node, i) => {
+        console.log(node.slots[1].entrant);
+
+        const team1 = node.slots[0].entrant;
+        const team2 = node.slots[1].entrant;
+
+        const participants1 = team1.participants;
+        const participants2 = team2.participants;
+
         const name1P =
-          node.slots[0].entrant === null ? '' : node.slots[0].entrant.participants[0].gamerTag;
+          team1 === null || participants1[0].gamerTag === null ? '' : participants1[0].gamerTag;
 
         const team1P =
-          node.slots[0].entrant === null || node.slots[0].entrant.participants[0].prefix === null
-            ? ''
-            : node.slots[0].entrant.participants[0].prefix;
+          team1 === null || participants1[0].prefix === null ? '' : participants1[0].prefix;
 
         const xID1P =
-          node.slots[0].entrant === null ||
-          node.slots[0].entrant.participants[0].user === null ||
-          node.slots[0].entrant.participants[0].user.authorizations === null
+          team1 === null ||
+          participants1[0].user === null ||
+          participants1[0].user.authorizations === null
             ? ''
-            : `@${node.slots[0].entrant.participants[0].user.authorizations[0].externalUsername}`;
+            : `@${participants1[0].user.authorizations[0].externalUsername}`;
 
         const name2P =
-          node.slots[1].entrant === null ? '' : node.slots[1].entrant.participants[0].gamerTag;
+          team2 === null || participants2[0].gamerTag === null ? '' : participants2[0].gamerTag;
 
         const team2P =
-          node.slots[1].entrant === null || node.slots[1].entrant.participants[0].prefix === null
-            ? ''
-            : node.slots[1].entrant.participants[0].prefix;
+          team2 === null || participants2[0].prefix === null ? '' : participants2[0].prefix;
 
         const xID2P =
-          node.slots[1].entrant === null ||
-          node.slots[1].entrant.participants[0].user === null ||
-          node.slots[1].entrant.participants[0].user.authorizations === null
+          team2 === null ||
+          participants2[0].user === null ||
+          participants2[0].user.authorizations === null
             ? ''
-            : `@${node.slots[1].entrant.participants[0].user.authorizations[0].externalUsername}`;
+            : `@${participants2[0].user.authorizations[0].externalUsername}`;
+
+        // ダブルスの場合は3Pと4Pも追加
+
+        const name3P =
+          team1 === null || participants1[1] === undefined
+            ? ''
+            : participants1[1].gamerTag === null
+            ? ''
+            : participants1[1].gamerTag;
+
+        const team3P =
+          team1 === null || participants1[1] === undefined
+            ? ''
+            : participants1[1].prefix === null
+            ? ''
+            : participants1[1].prefix;
+
+        const xID3P =
+          team1 === null || participants1[1] === undefined
+            ? ''
+            : participants1[1].user === null || participants1[1].user.authorizations === null
+            ? ''
+            : `@${participants1[1].user.authorizations[0].externalUsername}`;
+
+        const name4P =
+          team2 === null || participants2[1] === undefined
+            ? ''
+            : participants2[1].gamerTag === null
+            ? ''
+            : participants2[1].gamerTag;
+
+        const team4P =
+          team2 === null || participants2[1] === undefined
+            ? ''
+            : participants2[1].prefix === null
+            ? ''
+            : participants2[1].prefix;
+
+        const xID4P =
+          team2 === null || participants2[1] === undefined
+            ? ''
+            : participants2[1].user === null || participants2[1].user.authorizations === null
+            ? ''
+            : `@${participants2[1].user.authorizations[0].externalUsername}`;
 
         const stream = node.stream === null ? '' : node.stream.streamName;
         const round = node.fullRoundText;
+        const wPlacement = node.wPlacement;
+        const lPlacement = node.lPlacement;
         const state = node.state;
 
         array.push({
@@ -108,10 +160,22 @@ export function useGetMatch() {
             team: team2P,
             xID: xID2P,
           },
+          Player3: {
+            name: name3P,
+            team: team3P,
+            xID: xID3P,
+          },
+          Player4: {
+            name: name4P,
+            team: team4P,
+            xID: xID4P,
+          },
           Round: round,
           State: state === 2 ? 'In Progress' : 'Waiting',
           Stream: stream,
           Id: i,
+          wPlacement: wPlacement,
+          lPlacement: lPlacement,
         });
       });
 

@@ -8,7 +8,7 @@ type Props = {
   port: PlayerPort;
 };
 
-export function InfoNameSolo({ port }: Props) {
+export function InfoPlayerSolo({ port }: Props) {
   const [scoreboradInfo, setScoreboradInfo] = useRecoilState(scoreboradInfoAtom);
 
   const playerNameEdit: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (event) => {

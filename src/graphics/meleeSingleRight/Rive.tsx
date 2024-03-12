@@ -77,8 +77,8 @@ export const Rive = () => {
   const BestOf = repInformation?.BestOf;
   const Name1P = repInformation?.Player1.name;
   const Name2P = repInformation?.Player2.name;
-  const Score1P = repInformation?.Player1.score;
-  const Score2P = repInformation?.Player2.score;
+  const Score1P = repInformation?.Score.Player1;
+  const Score2P = repInformation?.Score.Player2;
   const Character1P = repInformation?.Player1.character.avatarUrl;
   const Character2P = repInformation?.Player2.character.avatarUrl;
   const Port1P = portConvert(repInformation?.Player1.port);

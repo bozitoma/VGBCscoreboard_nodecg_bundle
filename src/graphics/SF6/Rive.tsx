@@ -19,8 +19,8 @@ export const Rive = () => {
   const Name2P = repInformation?.Player2.name;
   const Team1P = repInformation?.Player1.team;
   const Team2P = repInformation?.Player2.team;
-  const Score1P = repInformation?.Player1.score;
-  const Score2P = repInformation?.Player2.score;
+  const Score1P = repInformation?.Score.Player1;
+  const Score2P = repInformation?.Score.Player2;
 
   const oldName1P = rive?.getTextRunValue('player1Name');
   const oldName2P = rive?.getTextRunValue('player2Name');

@@ -91,8 +91,8 @@ export const Rive = () => {
   const Name2P = repInformation?.Player2.name;
   const Name3P = repInformation?.Player3.name;
   const Name4P = repInformation?.Player4.name;
-  const Score1P = repInformation?.Player1.score;
-  const Score2P = repInformation?.Player2.score;
+  const Score1P = repInformation?.Score.Player1;
+  const Score2P = repInformation?.Score.Player2;
   const Character1P = repInformation?.Player1.character.avatarUrl;
   const Character2P = repInformation?.Player2.character.avatarUrl;
   const Character3P = repInformation?.Player3.character.avatarUrl;

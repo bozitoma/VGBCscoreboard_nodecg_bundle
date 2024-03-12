@@ -38,6 +38,10 @@ export const ScoreboardButtons = () => {
       Player2: scoreboradInfo.Player2,
       Player3: scoreboradInfo.Player3,
       Player4: scoreboradInfo.Player4,
+      Score: {
+        Player1: scoreboradInfo.Score.Player1,
+        Player2: scoreboradInfo.Score.Player2,
+      },
     });
     setSubmitOpen(true); // Submit完了のスナックバーを表示
   };
@@ -52,6 +56,10 @@ export const ScoreboardButtons = () => {
       Player2: scoreboardDefaultValue,
       Player3: scoreboardDefaultValue,
       Player4: scoreboardDefaultValue,
+      Score: {
+        Player1: 0,
+        Player2: 0,
+      },
     });
     setResetOpen(false); // Resetのモーダルを閉じる
     setResetCompleteOpen(true); // Reset完了のスナックバーを表示
@@ -68,6 +76,10 @@ export const ScoreboardButtons = () => {
         Player2: repInformation.Player2,
         Player3: repInformation.Player3,
         Player4: repInformation.Player4,
+        Score: {
+          Player1: repInformation.Score.Player1,
+          Player2: repInformation.Score.Player2,
+        },
       });
     }
   };

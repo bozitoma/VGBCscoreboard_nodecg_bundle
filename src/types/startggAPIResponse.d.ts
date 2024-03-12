@@ -42,6 +42,8 @@ type matchAPIResponse = {
 
 type matchNodesAPIResponse = {
   id: number;
+  wPlacement: number;
+  lPlacement: number;
   fullRoundText: string;
   state: number;
   stream: {
@@ -67,10 +69,14 @@ type matchNodesAPIResponse = {
 type matchArray = {
   Player1: matchPlayerInfo;
   Player2: matchPlayerInfo;
+  Player3: matchPlayerInfo;
+  Player4: matchPlayerInfo;
   Round: string;
   State: 'In Progress' | 'Waiting';
   Stream: string;
   Id: number;
+  wPlacement: number;
+  lPlacement: number;
 };
 
 type matchPlayerInfo = {

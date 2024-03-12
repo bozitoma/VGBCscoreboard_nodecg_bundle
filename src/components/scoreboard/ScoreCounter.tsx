@@ -40,45 +40,29 @@ const StyledInput = styled(TextField)({
   },
 });
 
+type Player = 'Player1' | 'Player2';
+
 export function ScoreCounter() {
   const [scoreboradInfo, setScoreboradInfo] = useRecoilState(scoreboradInfoAtom);
 
-  const score1PIncrement: MouseEventHandler<HTMLButtonElement> = () => {
+  const scoreIncrement: MouseEventHandler<HTMLButtonElement> | MouseEvent = (event) => {
+    const player: Player = event.currentTarget.id as Player;
     setScoreboradInfo((prev) => ({
       ...prev,
-      Player1: {
-        ...prev.Player1,
-        score: prev.Player1.score + 1,
+      Score: {
+        ...prev.Score,
+        [player]: prev.Score[player] + 1,
       },
     }));
   };
 
-  const score2PIncrement: MouseEventHandler<HTMLButtonElement> = () => {
+  const scoreDecrement: MouseEventHandler<HTMLButtonElement> = (event) => {
+    const player: Player = event.currentTarget.id as Player;
     setScoreboradInfo((prev) => ({
       ...prev,
-      Player2: {
-        ...prev.Player2,
-        score: prev.Player2.score + 1,
-      },
-    }));
-  };
-
-  const score1PDecrement: MouseEventHandler<HTMLButtonElement> = () => {
-    setScoreboradInfo((prev) => ({
-      ...prev,
-      Player1: {
-        ...prev.Player1,
-        score: prev.Player1.score - 1,
-      },
-    }));
-  };
-
-  const score2PDecrement: MouseEventHandler<HTMLButtonElement> = () => {
-    setScoreboradInfo((prev) => ({
-      ...prev,
-      Player2: {
-        ...prev.Player2,
-        score: prev.Player2.score - 1,
+      Score: {
+        ...prev.Score,
+        [player]: prev.Score[player] - 1,
       },
     }));
   };
@@ -86,13 +70,9 @@ export function ScoreCounter() {
   const reset = () => {
     setScoreboradInfo((prev) => ({
       ...prev,
-      Player1: {
-        ...prev.Player1,
-        score: 0,
-      },
-      Player2: {
-        ...prev.Player2,
-        score: 0,
+      Score: {
+        Player1: 0,
+        Player2: 0,
       },
     }));
   };
@@ -102,11 +82,19 @@ export function ScoreCounter() {
       <TitleDivider text="Score" />
       <Stack direction="row" spacing={2}>
         <ButtonGroup>
-          <StyledInput size="small" value={scoreboradInfo.Player1.score} />
-          <StyledButton onClick={score1PDecrement} disabled={scoreboradInfo.Player1.score === 0}>
+          <StyledInput size="small" value={scoreboradInfo.Score.Player1} />
+          <StyledButton
+            id="Player1"
+            onClick={scoreDecrement}
+            disabled={scoreboradInfo.Score.Player1 === 0}
+          >
             <RemoveIcon fontSize="small" />
           </StyledButton>
-          <StyledButton onClick={score1PIncrement} disabled={scoreboradInfo.Player1.score === 3}>
+          <StyledButton
+            id="Player1"
+            onClick={scoreIncrement}
+            disabled={scoreboradInfo.Score.Player1 === 3}
+          >
             <AddIcon fontSize="small" />
           </StyledButton>
         </ButtonGroup>
@@ -114,13 +102,21 @@ export function ScoreCounter() {
           <RemoveCircleOutlineIcon />
         </IconButton>
         <ButtonGroup>
-          <StyledButton onClick={score2PIncrement} disabled={scoreboradInfo.Player2.score === 3}>
+          <StyledButton
+            id="Player2"
+            onClick={scoreIncrement}
+            disabled={scoreboradInfo.Score.Player2 === 3}
+          >
             <AddIcon fontSize="small" />
           </StyledButton>
-          <StyledButton onClick={score2PDecrement} disabled={scoreboradInfo.Player2.score === 0}>
+          <StyledButton
+            id="Player2"
+            onClick={scoreDecrement}
+            disabled={scoreboradInfo.Score.Player2 === 0}
+          >
             <RemoveIcon fontSize="small" />
           </StyledButton>
-          <StyledInput size="small" value={scoreboradInfo.Player2.score} />
+          <StyledInput size="small" value={scoreboradInfo.Score.Player2} />
         </ButtonGroup>
       </Stack>
     </Stack>

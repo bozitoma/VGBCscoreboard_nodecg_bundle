@@ -12,6 +12,11 @@ export const scoreboradInfoAtom = atom({
     Player2: scoreboardDefaultValue,
     Player3: scoreboardDefaultValue,
     Player4: scoreboardDefaultValue,
+    // チーム戦なのでスコアは分けて記載
+    Score: {
+      Player1: 0,
+      Player2: 0,
+    },
   },
 });
 

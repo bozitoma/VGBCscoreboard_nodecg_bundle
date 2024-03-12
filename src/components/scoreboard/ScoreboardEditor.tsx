@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/material';
 import { InfoTournamentName } from './InfoTournamentName';
 import { InfoRound } from './InfoRound';
-import { InfoBestof } from './InforBestof';
+import { InfoBestof } from './InfoBestof';
 import { InfoPlayer } from './InfoPlayer';
 import { ScoreCounter } from './ScoreCounter';
 import { ScoreboardButtons } from './ScoreboardButtons';

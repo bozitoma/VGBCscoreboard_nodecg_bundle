@@ -5,7 +5,6 @@ export type Player = {
   name: string;
   team: string;
   xID: string;
-  score: number;
   port: PlayerPort;
   character: Character;
 };
@@ -28,7 +27,6 @@ export const playerDefaultValues: Player = {
   name: 'name',
   team: 'team',
   xID: '@ID',
-  score: 0,
   port: 'Player1',
   character: characterDefaultValue,
 };
@@ -70,6 +68,10 @@ export type ReplicantMap = {
     Player2: Player;
     Player3: Player;
     Player4: Player;
+    Score: {
+      Player1: number;
+      Player2: number;
+    };
   };
   Commentator: {
     commentator1: Commentator;
@@ -123,6 +125,10 @@ export const replicantDefaultValues: ReplicantMap = {
     Player2: playerDefaultValues,
     Player3: playerDefaultValues,
     Player4: playerDefaultValues,
+    Score: {
+      Player1: 0,
+      Player2: 0,
+    },
   },
   Commentator: {
     commentator1: commentatorDefaultValues,
